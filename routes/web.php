@@ -22,3 +22,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/game', 'PrizeController@game')->name('game');
+Route::post('/reject', 'ThingController@rejectItem')->name('reject');

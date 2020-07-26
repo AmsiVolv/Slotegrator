@@ -11,8 +11,10 @@
                         <p>Congratulation, you win {{$prize}}: <spam>{{$amount}}</spam> </p>
                     </div>
                     @if($prize === 'points')
-                            <form name="converPoint" method="post" action="">
+                            <form name="converPoint" method="post" action="{{'convert'}}">
                                 @csrf
+                                <input type="hidden" value="{{$amount}}" name="convert" id="convert">
+                                <input type="hidden" value="{{$prize_id}}" name="prize_id" id="prize_id">
                                 <button class="btn-secondary btn">Convert point!</button>
                             </form>
                     @endif

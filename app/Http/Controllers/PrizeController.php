@@ -64,7 +64,7 @@ class PrizeController extends Controller
     /**
      * Ну тут все просто
      * Если еще система позволяет крутить казино - крутись
-     * Нет - получай бонусики, так как acive=0
+     * Нет - получай бонусики, так как active=0
      *
      * Знал бы прикуп, жил бы в Сочи
      *
@@ -72,7 +72,7 @@ class PrizeController extends Controller
      * @param Int $amount
      * @return Factory|View
      */
-    private function quantityCheck(Array $prizeArray, Int $amount)
+    public function quantityCheck(Array $prizeArray, Int $amount)
     {
         if ($prizeArray['type'] !== 'points') {
             if ($prizeArray['count'] - $amount === 0) {
@@ -101,7 +101,7 @@ class PrizeController extends Controller
     {
         $prize = new PrizesController();
         $prize->loadToDB($prizeArray['id'], $amount);
-        return view('winpage', ['prize' => $prizeArray['type'], 'amount' => $amount]);
+        return view('winpage', ['prize' => $prizeArray['type'], 'amount' => $amount, 'prize_id' => $prizeArray['id']]);
     }
 
     /**

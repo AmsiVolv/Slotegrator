@@ -10,10 +10,12 @@
                     <div class="col-12 border-success">
                         <p>Congratulation, you win {{$prize}}: <spam>{{$amount}}</spam> </p>
                     </div>
-                    <form name="converPoint" method="post" action="">
-                        @csrf
-                        <button class="btn-secondary btn">Convert point!</button>
-                    </form>
+                    @if($prize === 'points')
+                            <form name="converPoint" method="post" action="">
+                                @csrf
+                                <button class="btn-secondary btn">Convert point!</button>
+                            </form>
+                    @endif
                 @endif
                 </div>
                 <button class="btn-secondary btn"><a class="text-decoration-none" href="{{'home'}}">Home!</a></button>

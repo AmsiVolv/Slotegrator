@@ -17,6 +17,7 @@ class CreatePrizesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('prize_type_id');
             $table->unsignedBigInteger('user_id');
+            $table->integer('amount');
 
             $table->foreign('prize_type_id')
                 ->references('id')

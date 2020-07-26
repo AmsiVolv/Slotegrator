@@ -22,11 +22,11 @@ class ThingController extends Controller
     public function rejectItem()
     {
          DB::table('prizes')
-            ->leftJoin('prize_types', 'prize_types.id', 'prizes.prize_type_id')
-            ->where([
-                ['type', '=', 'thing'],
-                ['user_id', '=', Auth::id()],
-            ])->latest()->delete();
+             ->leftJoin('prize_types', 'prize_types.id', 'prizes.prize_type_id')
+             ->where([
+                 ['type', '=', 'thing'],
+                 ['user_id', '=', Auth::id()],
+             ])->orderBy('prizes.created_at', 'desc')->limit(1)->delete();
          $this->updateQuantity();
          return redirect()->route('home')->with(['status'=>'Success reject!']);
     }

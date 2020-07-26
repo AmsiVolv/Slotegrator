@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/game', 'PrizeController@game')->name('game');
+Route::post('/reject', 'ThingController@rejectItem')->name('reject');
+Route::post('/convert', 'PointsController@convertPoints')->name('convert');
